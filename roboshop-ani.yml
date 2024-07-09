@@ -1,5 +1,6 @@
 - name: Demo
   hosts: all
+  become: yes # to overcome "This command has to be run under the root user.",
   roles:
     - "{{ role_name }}"
   # giving folder-name as variable bcz many components
