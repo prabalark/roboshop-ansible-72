@@ -1,3 +1,28 @@
-- name: demo on frntend
-  ansible.builtin.debug:
-    msg: component-frntend
+
+- name: Install the latest version of Apache
+  ansible.builtin.yum:
+    name: nginx
+    state: installed  # check the install ,update ,remove
+
+- name: copy roboshop confg file
+  ansible.builtin.copy:
+    src: reverse-proxy-ver-1
+    dest: /etc/nginx/default.d/roboshop.conf
+
+ # in shell we are removing only data &  download & un-zip content
+ # but here we are deleting folder & creating
+
+- name: remove default data
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent # to removed (or) absent
+
+- ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory # to create directory folder
+
+- name: download roboshop file and extract
+  ansible.builtin.unarchive:
+    src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+    dest: /usr/share/nginx/html
+    remote_src: yes
