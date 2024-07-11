@@ -19,7 +19,7 @@
 
 - ansible.builtin.file:
     path: /usr/share/nginx/html
-    state: directory # to create directory folder
+    state: directory # to create directory folder mkdir
 
 - name: download roboshop file and extract
   ansible.builtin.unarchive:
