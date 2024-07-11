@@ -23,12 +23,12 @@
 - name: download roboshop file and extract
   ansible.builtin.unarchive:
     src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip #instead of curl and rename
-    dest: /usr/share/nginx/html
-    remote_src: yes
+    dest: /usr/share/nginx/html #un-zip file path
+    remote_src: yes   #Unarchive will help to deal with url and get file , to do this Remote_src is imp
 
 - name: to restart the systemd
   ansible.builtin.systemd:
     name: nginx
-    state: restarted  #systemctl start nginx
+    state: restarted  #systemctl restart nginx
     enabled: yes      #systemctl enable nginx
 
