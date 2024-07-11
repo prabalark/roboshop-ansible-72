@@ -6,12 +6,11 @@
 
 - name: copy roboshop confg file
   ansible.builtin.copy:
-    src: reverse-proxy-ver-1
+    src: reverse-proxy-ver-1 # no need to keep total path as like shell
     dest: /etc/nginx/default.d/roboshop.conf
 
  # in shell we are removing only data &  download & un-zip content
  # but here we are deleting folder & creating
-
 - name: remove default data
   ansible.builtin.file:
     path: /usr/share/nginx/html
@@ -23,13 +22,13 @@
 
 - name: download roboshop file and extract
   ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+    src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip #instead of curl and rename
     dest: /usr/share/nginx/html
     remote_src: yes
 
 - name: to restart the systemd
   ansible.builtin.systemd:
     name: nginx
-    state: restarted
-    enabled: yes
+    state: restarted  #systemctl start nginx
+    enabled: yes      #systemctl enable nginx
 
