@@ -1,0 +1,37 @@
+#  print_head "create /app"
+#  id ${username} &>>${log_path}
+#  if [ $? -ne 0 ]; then
+#  useradd ${username} &>>${log_path}
+#  fi
+#  func_exit $?
+
+#  rm -rf /app # bcz re-run of code some time through error
+#  mkdir /app &>>${log_path}
+#  func_exit $?
+
+#  print_head "downlaod ${component}"
+#  curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log_path}
+#  func_exit $?
+#  print_head "unzip ${component}"
+#  cd /app &>>${log_path}
+#  unzip /tmp/${component}.zip &>>${log_path}
+#  func_exit $?
+
+- name:
+  ansible.builtin.user:
+    name: "{{username}}"
+
+- name: remove default data
+  ansible.builtin.file:
+    path: /app
+    state: absent # to removed (or) absent
+
+- ansible.builtin.file:
+    path: /app
+    state: directory # to create directory folder mkdir
+
+- name: download roboshop file and extract
+  ansible.builtin.unarchive:
+    src: https://roboshop-artifacts.s3.amazonaws.com/${component}.zip #instead of curl and rename
+    dest: /app  #un-zip file path
+    remote_src: yes   #Unarchive will help to deal with url and get file , to do this Remote_src is imp
