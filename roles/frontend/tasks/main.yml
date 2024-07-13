@@ -8,6 +8,7 @@
   ansible.builtin.copy:
     src: reverse-proxy-ver-1 # no need to keep total path as like shell
     dest: /etc/nginx/default.d/roboshop.conf
+  # if only web-server checking then keep all application to localhost.
 
  # in shell we are removing only data &  download & un-zip content
  # but here we are deleting folder & creating
