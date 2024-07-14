@@ -1,28 +1,19 @@
-# echo -e "\e[32m >>>>>>> copy mongodb repo <<<<<<< \e[0m"
-# cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
-
-# echo -e "\e[32m >>>>>>> install mongodb client <<<<<<< \e[0m"
-# dnf install mongodb-org-shell -y
-
-# echo -e "\e[32m >>>>>>> load schema <<<<<< \e[0m"
-# mongo --host mongodb.devops72bat.online </app/schema/${component}.js
-
-- name : schema == "mongo"
+- name: schema == "mongo"
   when: schema == "mongo"
   ansible.builtin.block:
+    - name : copy ansible file
+      ansible.builtin.copy:
+        src: mongo.repo
+        dest: /etc/yum.repos.d/mongo.repo
 
-- name : copy ansible file
-  ansible.builtin.copy:
-    src: mongo.repo
-    dest: /etc/yum.repos.d/mongo.repo
 
-- name: install mongodb client
-  ansible.builtin.yum:
-    name: mongodb-org-shell
-    state: installed
+    - name: install mongodb client
+      ansible.builtin.yum:
+        name: mongodb-org-shell
+        state: installed
 
-- name: load schema
-  ansible.builtin.shell: mongo --host {{ lookup('aws_ssm','dev.frontend.catalogue_mongoendpoint',region='us-east-1' }} </app/schema/${component}.js
+    - name: load schema
+      ansible.builtin.shell: mongo --host {{ lookup('aws_ssm','dev.frontend.catalogue_mongoendpoint',region='us-east-1' }} </app/schema/${component}.js
 
 
 
