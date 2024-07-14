@@ -3,7 +3,6 @@
     name: common
     tasks_from: nodejs   #  func_nodejs instead of call func here ansible call
 
-
    # component=catalogue   #in vars/main.yml
    # schma_check=mongodb   #in vars/main.yml
    # func_nodejs  # here only

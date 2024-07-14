@@ -1,22 +1,3 @@
-#  print_head "create /app"
-#  id ${username} &>>${log_path}
-#  if [ $? -ne 0 ]; then
-#  useradd ${username} &>>${log_path}
-#  fi
-#  func_exit $?
-
-#  rm -rf /app # bcz re-run of code some time through error
-#  mkdir /app &>>${log_path}
-#  func_exit $?
-
-#  print_head "downlaod ${component}"
-#  curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log_path}
-#  func_exit $?
-#  print_head "unzip ${component}"
-#  cd /app &>>${log_path}
-#  unzip /tmp/${component}.zip &>>${log_path}
-#  func_exit $?
-
 - name:
   ansible.builtin.user:
     name: "{{username}}"
