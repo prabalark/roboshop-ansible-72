@@ -1,5 +1,5 @@
 - name: install disable of nodejs -y
-  ansible.builtin.shell : dnf module disable nodejs
+  ansible.builtin.shell : dnf module disable nodejs -y
 
 - name: install enable of nodejs
   ansible.builtin.shell : dnf module enable nodejs:18 -y

@@ -1,0 +1,21 @@
+# echo -e "\e[32m >>>>>>> copy mongodb repo <<<<<<< \e[0m"
+# cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
+
+# echo -e "\e[32m >>>>>>> install mongodb client <<<<<<< \e[0m"
+# dnf install mongodb-org-shell -y
+
+# echo -e "\e[32m >>>>>>> load schema <<<<<< \e[0m"
+# mongo --host mongodb.devops72bat.online </app/schema/${component}.js
+
+- name : copy ansible file
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: install mongodb client
+  ansible.builtin.yum:
+    name: mongodb-org-shell
+    state: installed
+
+- name: load schema
+  ansible.builtin.shell: mongo --host mongodb.devops72bat.online </app/schema/${component}.js
