@@ -13,7 +13,6 @@
 #
 #    - name: load schema
 #      ansible.builtin.shell: mongo --host {{ lookup('aws_ssm','dev.frontend.catalogue_mongoendpoint',region='us-east-1' }} </app/schema/${component}.js
-
 - name : copy ansible file
   ansible.builtin.copy:
     src: mongo.repo
