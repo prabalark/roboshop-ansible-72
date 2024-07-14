@@ -1,4 +1,4 @@
-- name: schema mongodb
+- name: loading schema mongo
   when: schema == "mongo"
   ansible.builtin.block:
     - name : copy ansible file
