@@ -1,0 +1,12 @@
+- name: copy roboshop confg file
+  ansible.builtin.template:       # bcz of parameter keeping template
+    src: "{{component}}".service  # no need to keep total path as like shell
+    dest: /etc/systemd/system/{{component}}.service
+
+- name: install {{component}} systemd
+  ansible.builtin.systemd:
+    name: "{{component}}"
+    state: restarted
+    enabled: true   # to main uniform true is keeping all
+    daemon-reload: true
+
