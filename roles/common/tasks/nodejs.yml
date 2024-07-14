@@ -19,10 +19,13 @@
 #  systemctl restart ${component} &>>${log_path}
 #  func_exit $?
 
-- name: config nodejs repo file
-  ansible.builtin.shell: curl -sL https://rpm.nodesoure.com/setup_lts.x | bash
+- name: install enable/disable of nodejs
+  dnf:
+    name: nginx >18
+    enabled: yes
+ # ansible.builtin.shell: curl -sL https://rpm.nodesoure.com/setup_lts.x | bash
 
-- name: Install the latest version of Apache
+- name: Install nginx
   ansible.builtin.yum:
     name: nginx
     state: installed  # check the install ,update ,remove
