@@ -1,7 +1,7 @@
 - name: import nodejs
   ansible.builtin.import_role:
     name: common
-    tasks_from: nodejs   #  func_nodejs instead of call func here ansible call
+    tasks_from: nodejs  #func_nodejs instead of call func here ansible call
 
    # component=catalogue   #in vars/main.yml
    # schma_check=mongodb   #in vars/main.yml

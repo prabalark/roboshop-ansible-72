@@ -18,3 +18,4 @@
   ansible.builtin.shell: npm install
   args:
     chdir: /app
+
