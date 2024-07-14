@@ -1,2 +1,2 @@
-component=catalogue
+component: catalogue
 #schma_check=mongodb
