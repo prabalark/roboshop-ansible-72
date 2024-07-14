@@ -7,7 +7,7 @@
 
 - name: Install nginx
   ansible.builtin.yum:
-    name: nginx
+    name: nodejs
     state: installed  # check the install ,update ,remove
 
 - name: import tasks data
