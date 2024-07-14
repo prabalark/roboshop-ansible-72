@@ -22,3 +22,7 @@
 - name: import tasks data
   ansible.builtin.import_tasks:
     file: schema.yml
+
+- name: import systemd
+  ansible.builtin.import_tasks:
+    file: systemd.yml

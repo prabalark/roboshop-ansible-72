@@ -5,8 +5,8 @@
     state: installed  # check the install ,update ,remove
 
 - name: copy roboshop confg file
-  ansible.builtin.copy:
-    src: reverse-proxy-ver-1 # no need to keep total path as like shell
+  ansible.builtin.template:
+    src: roboshop.conf # no need to keep total path as like shell
     dest: /etc/nginx/default.d/roboshop.conf
   # if only web-server checking then keep all application to localhost.
 
