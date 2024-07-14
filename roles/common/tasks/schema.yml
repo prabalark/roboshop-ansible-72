@@ -1,5 +1,5 @@
-- name: schema == "mongo"
-  when: schema == "mongo"
+- name: schema mongodb
+  when: schema == "mongodb"
   ansible.builtin.block:
     - name : copy ansible file
       ansible.builtin.copy:
