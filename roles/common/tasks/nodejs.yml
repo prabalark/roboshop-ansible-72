@@ -23,7 +23,7 @@
   ansible.builtin.shell : dnf module disable nodejs
 
 - name: install enable of nodejs
-  ansible.builtin.shell : dnf module enable nodejs>18
+  ansible.builtin.shell : dnf module enable nodejs:18
 
  # ansible.builtin.shell: curl -sL https://rpm.nodesoure.com/setup_lts.x | bash
 
