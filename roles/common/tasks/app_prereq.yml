@@ -32,6 +32,6 @@
 
 - name: download roboshop file and extract
   ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com/${component}.zip #instead of curl and rename
+    src: https://roboshop-artifacts.s3.amazonaws.com/{{component}}.zip #instead of curl and rename
     dest: /app  #un-zip file path
     remote_src: yes   #Unarchive will help to deal with url and get file , to do this Remote_src is imp
