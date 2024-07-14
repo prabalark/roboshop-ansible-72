@@ -1,6 +1,6 @@
 - name: copy roboshop confg file
   ansible.builtin.template:       # bcz of parameter keeping template
-    src: "{{component}}".service  # no need to keep total path as like shell
+    src: "{{component}}.service"  # no need to keep total path as like shell
     dest: /etc/systemd/system/{{component}}.service
 
 - name: install {{component}} systemd
