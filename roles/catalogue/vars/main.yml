@@ -1,2 +1,2 @@
 component: catalogue
-schma_check: mongodb
+schema: mongodb
