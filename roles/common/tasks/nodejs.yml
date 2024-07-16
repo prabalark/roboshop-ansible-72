@@ -9,8 +9,8 @@
 #    name: nodejs
 #    state: installed  # check the install ,update ,remove
 
- - name: config nodejs repo  #  cd /etc/yum.repos.d  ls
-   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+- name: config nodejs repo  #  cd /etc/yum.repos.d  ls
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 - name: import tasks data
   ansible.builtin.import_tasks:
