@@ -4,13 +4,13 @@
 - name: install enable of nodejs
   ansible.builtin.shell : dnf module enable nodejs:18 -y
 
-- name: config nodejs repo
-  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
-
-- name: Install nginx
+- name: Install nginx #  cd /etc/yum.repos.d  ls
   ansible.builtin.yum:
     name: nodejs
     state: installed  # check the install ,update ,remove
+
+- name: config nodejs repo  #  cd /etc/yum.repos.d  ls
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 - name: import tasks data
   ansible.builtin.import_tasks:
@@ -27,7 +27,9 @@
   ansible.builtin.import_tasks:
     file: schema.yml
 
-#step-3
+#step-3  find . name "*catalogue.service*"  cd /etc/systemd/system ls -l  vim catalogue.service [ .service is mandatory ]
 - name: import systemd
   ansible.builtin.import_tasks:
     file: systemd.yml
+
+# tail -f /var/log/messages
