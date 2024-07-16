@@ -3,7 +3,9 @@
 
 - name: install enable of nodejs
   ansible.builtin.shell : dnf module enable nodejs:18 -y
- # ansible.builtin.shell: curl -sL https://rpm.nodesoure.com/setup_lts.x | bash
+
+- name: config nodejs repo
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 - name: Install nginx
   ansible.builtin.yum:
@@ -18,11 +20,14 @@
   ansible.builtin.shell: npm install
   args:
     chdir: /app
+ # check upto npm in linux by  cd /app  ls-l   cat package.json [ no error has to get ]
 
+#step-2
 - name: import tasks data
   ansible.builtin.import_tasks:
     file: schema.yml
 
+#step-3
 - name: import systemd
   ansible.builtin.import_tasks:
     file: systemd.yml
