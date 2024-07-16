@@ -4,7 +4,7 @@
 - name: install enable of nodejs
   ansible.builtin.shell : dnf module enable nodejs:18 -y
 
-- name: Install nginx #  cd /etc/yum.repos.d  ls
+- name: Install nginx #  cd /etc/yum.repos.d  ls [why not this]
   ansible.builtin.yum:
     name: nodejs
     state: installed  # check the install ,update ,remove
