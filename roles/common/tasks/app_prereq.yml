@@ -9,7 +9,7 @@
 
 - ansible.builtin.file:
     path: /app
-    state: directory # to create directory folder mkdir
+    state: directory # to create directory  mkdir
 
 - name: download roboshop file and extract
   ansible.builtin.unarchive:
