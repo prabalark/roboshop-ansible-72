@@ -5,4 +5,5 @@
 # location /api/payment/ { proxy_pass http://localhost:8080/; } # payment.devops72bat.online
 
 #location /api/catalogue/ { proxy_pass {{ lookup('aws_ssm','dev.frontend.catalogue_url',region='us-east-1') }}; }
+#location /api/catalogue/ { proxy_pass {{ lookup('aws_ssm','dev.frontend.user_url',region='us-east-1') }}; }
 
