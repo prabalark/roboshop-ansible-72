@@ -1,2 +1,2 @@
 component: user
-schma_check: mongo
+schema: mongo
