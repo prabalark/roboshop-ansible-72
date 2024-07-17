@@ -1,16 +1,16 @@
-- name: install disable of nodejs -y
-  ansible.builtin.shell : dnf module disable nodejs -y # for shell command -y has to keep in ansible
+#- name: install disable of nodejs -y
+#  ansible.builtin.shell : dnf module disable nodejs -y # for shell command -y has to keep in ansible
+#
+#- name: install enable of nodejs
+#  ansible.builtin.shell : dnf module enable nodejs:18 -y
+#
+#- name: Install nginx #  cd /etc/yum.repos.d  ls [why not this]
+#  ansible.builtin.yum:
+#    name: nodejs
+#    state: installed  # check the install ,update ,remove
 
-- name: install enable of nodejs
-  ansible.builtin.shell : dnf module enable nodejs:18 -y
-
-- name: Install nginx #  cd /etc/yum.repos.d  ls [why not this]
-  ansible.builtin.yum:
-    name: nodejs
-    state: installed  # check the install ,update ,remove
-
-#- name: config nodejs repo  #  cd /etc/yum.repos.d  ls
-#  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+- name: config nodejs repo  #  cd /etc/yum.repos.d  ls
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 - name: import tasks data
   ansible.builtin.import_tasks:
