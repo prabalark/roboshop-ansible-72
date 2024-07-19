@@ -1,3 +1,9 @@
-- name: demo on shipping
-  ansible.builtin.debug:
-    msg: component-shipping
+- name: import nodejs
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: java
+    #func_nodejs instead of call func here ansible call
+
+    # component=shipping   #in vars/main.yml
+    # schma_check=mysql    #in vars/main.yml
+    # func_nodejs  # here only
