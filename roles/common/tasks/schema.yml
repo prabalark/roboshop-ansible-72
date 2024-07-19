@@ -69,6 +69,10 @@
  # rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>${log_path}
  # func_exit $?
 
+ doubts
+- my sql repo was not kept
+  
+  rabbit mq file was not kept in schema
 
 
 
