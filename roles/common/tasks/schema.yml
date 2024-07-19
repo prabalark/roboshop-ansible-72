@@ -47,6 +47,27 @@
       ansible.builtin.shell: mysql -h {{ lookup('aws_ssm','dev.frontend.shipping_db_host',region='us-east-1') }} -u{{ lookup('aws_ssm','dev.frontend.shipping_user',region='us-east-1') }} -p{{ lookup('aws_ssm','dev.frontend.shipping_password',region='us-east-1') }} < /app/schema/{{component_shp}}.sql
 
 #------------#payment-rabbitmq------------------#
+ # print_head "download rabbitmq"
+ # curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>>${log_path}
+ # func_exit $?
+ # curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>>${log_path}
+ # func_exit $?
+ #
+ # print_head "install rabbitmq"
+ # dnf install rabbitmq-server -y &>>${log_path}
+ # func_exit $?
+ #
+ # print_head "start rabbitmq"
+ # systemctl enable rabbitmq-server &>>${log_path}
+ # systemctl restart rabbitmq-server &>>${log_path}
+ # func_exit $?
+ #
+ # #roboshop123
+ # print_head "adduser rabbitmq"
+ # rabbitmqctl add_user roboshop ${rabbitm1_lg_password} &>>${log_path}
+ # func_exit $?
+ # rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>${log_path}
+ # func_exit $?
 
 
 
