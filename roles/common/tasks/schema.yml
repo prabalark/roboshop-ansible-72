@@ -46,7 +46,7 @@
     - name: load schema
       ansible.builtin.shell: mysql -h {{ lookup('aws_ssm','dev.frontend.shipping_db_host',region='us-east-1') }} -u{{ lookup('aws_ssm','dev.frontend.shipping_user',region='us-east-1') }} -p{{ lookup('aws_ssm','dev.frontend.shipping_password',region='us-east-1') }} < /app/schema/{{component_shp}}.sql
 
-
+#------------#payment-rabbitmq------------------#
 
 
 
