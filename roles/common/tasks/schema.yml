@@ -31,6 +31,7 @@
       ansible.builtin.shell: mongo --host {{ lookup('aws_ssm','dev.frontend.catalogue_mongoendpoint',region='us-east-1') }} </app/schema/{{component}}.js
 
 #------------#shipping-mysql------------------#
+# - my sql repo was not kept  bcz in shipping.sh it is thy in document
 #dnf install mysql -y &>>${log_path}
 #RoboShop@1 --password as input
 #mysql -h mysql.devops72bat.online -uroot -p${mysqlpassword} < /app/schema/${component_shp}.sql &>>${log_path}
@@ -69,10 +70,8 @@
  # rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>${log_path}
  # func_exit $?
 
- doubts
-- my sql repo was not kept
-  
   rabbit mq file was not kept in schema
+
 
 
 
