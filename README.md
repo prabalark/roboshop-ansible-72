@@ -7,7 +7,7 @@
 location /api/catalogue/ { proxy_pass {{ lookup('aws_ssm','dev.frontend.catalogue_url',region='us-east-1') }}; }
 location /api/user/ { proxy_pass {{ lookup('aws_ssm','dev.frontend.user_url',region='us-east-1') }}; }
 location /api/cart/ { proxy_pass {{ lookup('aws_ssm','dev.frontend.cart_url',region='us-east-1') }}; }
-location /api/shipping/ { proxy_pass http://localhost:8080/; }
+location /api/shipping/ { proxy_pass {{ lookup('aws_ssm','dev.frontend.shipping_url',region='us-east-1') }}; }
 location /api/payment/ { proxy_pass http://localhost:8080/; }
 
 #{ name= "dev.frontend.catalogue_url" , value= "http://catalogue.devops72bat.online:8080/" },
