@@ -1,3 +1,3 @@
 component: payment
-schema: none
+
 # no variable in schema.yml to aviod error we have to keep
