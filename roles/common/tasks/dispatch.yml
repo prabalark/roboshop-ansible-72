@@ -1,9 +1,3 @@
-- name: install disable of nodejs -y
-  ansible.builtin.shell : dnf module disable nodejs -y # for shell command -y has to keep in ansible
-
-- name: install enable of nodejs
-  ansible.builtin.shell : dnf module enable nodejs:18 -y
-
 - name: Install golang  #  cd /etc/yum.repos.d  ls
   ansible.builtin.yum:
     name: golang
