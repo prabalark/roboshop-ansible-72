@@ -1,7 +1,7 @@
-- name: load schema
+- name: load RabbitMQ package1
   ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
 
-- name: load schema
+- name: load RabbitMQ package2
   ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
 
 - name: Install RabbitMQ Server

@@ -37,11 +37,6 @@
 #  ansible.builtin.import_tasks:
 #    file: schema.yml
 
-- name: import rabbitmq
-  ansible.builtin.import_role:
-    name: rabbitmq
-    tasks_from: main
-
 #step-3  find . name "*catalogue.service*"  cd /etc/systemd/system ls -l  vim catalogue.service [ .service is mandatory ]
 - name: import systemd
   ansible.builtin.import_tasks:
