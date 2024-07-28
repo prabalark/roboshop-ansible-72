@@ -18,8 +18,8 @@
   when: schema == "mongo"
   block:
     - name : copy ansible file
-      ansible.builtin.copy:
-        src: mongo.repo
+      ansible.builtin.copy:  # to get the file from files use copy
+        src: mongo.repo       # no need to write total path like shell
         dest: /etc/yum.repos.d/mongo.repo
 
     - name: install mongodb client
