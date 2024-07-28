@@ -1,0 +1,26 @@
+- name: load schema
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+
+- name: load schema
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+
+- name: Install RabbitMQ Server
+  ansible.builtin.yum:
+    name: rabbitmq-server
+    state: installed
+
+- name: Start RabbitMQ Server
+  ansible.builtin.systemd:
+    name: rabbitmq-server
+    state: restarted
+    enabled: yes
+
+- name: Add Application User
+  community.rabbitmq.rabbitmq_user:
+    user: "{{ lookup('amazon.aws.aws_ssm', 'dev.frontend.rabbitmq.amqp_user', region='us-east-1') }}"
+    password: "{{ lookup('amazon.aws.aws_ssm', 'dev.frontend.rabbitmq.amqp_pass', region='us-east-1') }}"
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present
