@@ -11,7 +11,7 @@
 #  when: schema == "mongo"
 #
 #- name: load schema
-#  ansible.builtin.shell: mongo --host {{ lookup('aws_ssm','dev.frontend.catalogue_mongoendpoint',region='us-east-1') }} </app/schema/{{component}}.js
+#  ansible.builtin.shell: mongo --host {{ lookup('aws_ssm','{{env}}.frontend.catalogue_mongoendpoint',region='us-east-1') }} </app/schema/{{component}}.js
 #  when: schema == "mongo"
 
 - name: loading mongo schema
@@ -28,13 +28,13 @@
         state: installed
 
     - name: load schema
-      ansible.builtin.shell: mongo --host {{ lookup('aws_ssm','dev.frontend.catalogue_mongoendpoint',region='us-east-1') }} </app/schema/{{component}}.js
+      ansible.builtin.shell: mongo --host {{ lookup('aws_ssm','{{env}}.frontend.catalogue_mongoendpoint',region='us-east-1') }} </app/schema/{{component}}.js
 
 #------------#shipping-mysql------------------#
 # - my sql repo was not kept  bcz in shipping.sh it is thy in document
 #dnf install mysql -y &>>${log_path}
 #RoboShop@1 --password as input
-#mysql -h mysql.devops72bat.online -uroot -p${mysqlpassword} < /app/schema/${component_shp}.sql &>>${log_path}
+#mysql -h mysql.{{env}}ops72bat.online -uroot -p${mysqlpassword} < /app/schema/${component_shp}.sql &>>${log_path}
 
 - name: loading mysql schema
   when: schema == "mysql"
@@ -45,7 +45,7 @@
         state: installed
 
     - name: load schema
-      ansible.builtin.shell: mysql -h {{ lookup('aws_ssm','dev.frontend.shipping_db_host',region='us-east-1') }} -u{{ lookup('aws_ssm','dev.frontend.shipping_user',region='us-east-1') }} -p{{ lookup('aws_ssm','dev.frontend.shipping_password',region='us-east-1') }} < /app/schema/{{component}}.sql
+      ansible.builtin.shell: mysql -h {{ lookup('aws_ssm','{{env}}.frontend.shipping_db_host',region='us-east-1') }} -u{{ lookup('aws_ssm','{{env}}.frontend.shipping_user',region='us-east-1') }} -p{{ lookup('aws_ssm','{{env}}.frontend.shipping_password',region='us-east-1') }} < /app/schema/{{component}}.sql
 
 #------------#payment-rabbitmq------------------#
  #  rabbit mq file was not kept in schema

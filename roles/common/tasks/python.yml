@@ -1,5 +1,5 @@
 #print_head  "install python"
-#dnf install python36 gcc python3-devel -y &>>${log_path}
+#dnf install python36 gcc python3-{{env}}el -y &>>${log_path}
 
 #print_head  "install library"
 #cd /app &>>${log_path}
@@ -19,7 +19,7 @@
     name:
       - python36
       - gcc
-      - python3-devel
+      - python3-{{env}}el
     state: installed  # check the install ,update ,remove
 
 - name: import tasks data
