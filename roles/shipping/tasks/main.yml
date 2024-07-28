@@ -4,6 +4,6 @@
     tasks_from: java
     #func_nodejs instead of call func here ansible call
 
-    # component=shipping   #in vars/main.yml
-    # schma_check=mysql    #in vars/main.yml
+    # component=shipping   #in vars/dispatch.service
+    # schma_check=mysql    #in vars/dispatch.service
     # func_nodejs  # here only

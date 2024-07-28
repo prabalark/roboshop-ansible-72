@@ -4,6 +4,6 @@
     tasks_from: nodejs
     #func_nodejs instead of call func here ansible call
 
-   # component=catalogue   #in vars/main.yml
-   # schma_check=mongodb   #in vars/main.yml
+   # component=catalogue   #in vars/dispatch.service
+   # schma_check=mongodb   #in vars/dispatch.service
    # func_nodejs  # here only
