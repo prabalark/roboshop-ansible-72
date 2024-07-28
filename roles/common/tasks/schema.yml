@@ -49,35 +49,7 @@
 
 #------------#payment-rabbitmq------------------#
  #  rabbit mq file was not kept in schema
-- name: loading rabbitmq schema
-  when: schema == "rabbitmq"
-  block:
-    - name: load schema
-      ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
 
-    - name: load schema
-      ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
-
-    - name: install rabbitmq
-      ansible.builtin.yum:
-        name: rabbitmq-server
-        state: installed
-
-    - name: install {{component}} systemd
-      ansible.builtin.systemd:
-        name: rabbitmq-server
-        state: restarted
-        enabled: true   # to main uniform true is keeping all
-
-    - name: add application user
-      community.rabbitmq.rabbitmq_user:
-         user: roboshop
-         password: roboshop123
-         vhost: /
-         configure_priv: .*
-         read_priv: .*
-         write_priv: .*
-         state: present
 
 
 
