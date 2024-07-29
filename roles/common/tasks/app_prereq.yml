@@ -1,6 +1,6 @@
 - name:
   ansible.builtin.user:
-    name: "{{username}}"
+    name: "{{username}}" #this is common for all comp ,so keep in common/vars
 
 - name: remove default data
   ansible.builtin.file:
