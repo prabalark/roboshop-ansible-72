@@ -10,7 +10,7 @@
   # if only web-server checking then keep all application to localhost.
 
  # in shell we are removing only data &  download & un-zip content
- # but here we are deleting folder & creating\
+ # but here we are deleting folder & creating
 - name: remove default data
   ansible.builtin.file:
     path: /usr/share/nginx/html
