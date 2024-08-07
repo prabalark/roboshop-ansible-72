@@ -10,12 +10,6 @@
 #location /api/shipping/ { proxy_pass {{ lookup('aws_ssm','{{env}}.frontend.shipping_url',region='us-east-1') }}; }
 #location /api/payment/ { proxy_pass {{ lookup('aws_ssm','{{env}}.frontend.payment_url',region='us-east-1') }}; }
 
-#{ name= "{{env}}.frontend.catalogue_url" , value= "http://catalogue.{{env}}ops72bat.online:8080/" },
-#{ name= "{{env}}.frontend.cart_url" , value= "http://cart.{{env}}ops72bat.online:8080/" },
-#{ name= "{{env}}.frontend.user_url" , value= "http://user.{{env}}ops72bat.online:8080/" },
-#{ name= "{{env}}.frontend.shipping_url" , value= "http://shipping.{{env}}ops72bat.online:8080/" },
-#{ name= "{{env}}.frontend.payment_url" , value= "http://payment.{{env}}ops72bat.online:8080/" },
-
 #catalogue
 #location /api/catalogue/ { proxy_pass {{ lookup('aws_ssm','{{env}}.frontend.catalogue_url',region='us-east-1') }}; }
 #{ name= "{{env}}.frontend.catalogue_url" , value= "http://catalogue.{{env}}ops72bat.online:8080/" },
