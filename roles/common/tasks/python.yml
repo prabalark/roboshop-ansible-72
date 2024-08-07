@@ -19,7 +19,7 @@
     name:
       - python36
       - gcc
-      - python3-{{env}}el
+      - python3-devel
     state: installed  # check the install ,update ,remove
 
 - name: import tasks data
