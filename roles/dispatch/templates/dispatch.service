@@ -2,9 +2,9 @@
   Description = Dispatch Service
   [Service]
   User=roboshop
-  Environment=AMQP_HOST={{ lookup('aws_ssm','{{env}}.dispatch_AMQP_HOST',region='us-east-1') }}
-  Environment=AMQP_USER={{ lookup('aws_ssm','{{env}}.dispatch_AMQP_USER',region='us-east-1') }}
-  Environment=AMQP_PASS={{ lookup('aws_ssm','{{env}}.dispatch_AMQP_PASS',region='us-east-1') }}
+  Environment=AMQP_HOST={{ lookup('aws_ssm','{{env}}.dispatch.amqp_host',region='us-east-1') }}
+  Environment=AMQP_USER={{ lookup('aws_ssm','{{env}}.dispatch.amqp_user',region='us-east-1') }}
+  Environment=AMQP_PASS={{ lookup('aws_ssm','{{env}}.dispatch.amqp_pass',region='us-east-1') }}
   ExecStart=/app/dispatch
   SyslogIdentifier=dispatch
   
