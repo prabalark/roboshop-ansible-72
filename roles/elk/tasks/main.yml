@@ -1,0 +1,10 @@
+- name: copy logstash confg
+  ansible.builtin.template:
+    src: logstash.conf
+    dest: /etc/logstash/conf.d/logstash.conf
+
+- name: restart logstash
+  ansible.builtin.systemd:
+    name: logstash
+    state: restarted
+    enabled: true   # to main uniform true is keeping all
