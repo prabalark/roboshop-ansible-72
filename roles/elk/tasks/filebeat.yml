@@ -7,3 +7,15 @@
   ansible.builtin.dnf:
     name: filebeat
     state: installed
+
+- name: copy filebeat
+  ansible.builtin.template:
+    src: filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
+
+- name: start systemd
+  ansible.builtin.systemd:
+    name: filebeat
+    state: restarted
+    enabled: true   # to main uniform true is keeping all
+
