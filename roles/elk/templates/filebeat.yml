@@ -1,13 +1,13 @@
 filebeat.inputs:
   - type: filestream
-    id: my-filestream-id
-    enabled: false
+    id: {{ component }}
+    enabled: true
     paths:
-      - /var/log/*.log
+      - {{log_file}}
 
  # Logstash Output
 output.logstash:
-  hosts: ["localhost:5044"]
+  hosts: ["172.31.13.214:5044"]
 
   #Default
 filebeat.config.modules:
