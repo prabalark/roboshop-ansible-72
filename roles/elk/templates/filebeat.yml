@@ -8,6 +8,8 @@ filebeat.inputs:
 
 fields:
   component: {{component}}
+#if we keep field  then only the frntend name will come in elastic
+  #though we keep in 'id'
 
  # Logstash Output
 output.logstash:
