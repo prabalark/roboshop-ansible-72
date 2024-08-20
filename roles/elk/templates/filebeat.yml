@@ -21,11 +21,17 @@ filebeat.config.modules:
   reload.enabled: false
 setup.template.settings:
   index.number_of_shards: 1
-   # few logs steps will delete
+   # cloud-logs steps will delete
 #processors:
 #  - add_host_metadata:
 #      when.not.contains.tags: forwarded
 #  - add_cloud_metadata: ~
 #  - add_docker_metadata: ~
 #  - add_kubernetes_metadata: ~
+
+  # agent-logs steps will delete
+processors:
+  - drop_fields:
+      fields: ["agent.ephemeral_id", "agent.hostname", "agent.id", "agent.type", "agent.version", "ecs.version", "input.type", "log.offset", "version"]
+
 
