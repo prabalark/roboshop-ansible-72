@@ -4,7 +4,7 @@ filebeat.inputs:
     id: {{ component }} #check in all comp in vars
     enabled: true
     paths:
-      - {{log_file}} #check in all comp in vars
+      - {{log_file}} #check in frontend vars
 
 fields:
   component: {{component}}
