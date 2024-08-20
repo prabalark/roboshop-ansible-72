@@ -1,3 +1,5 @@
+# edit file & check keep password & restart
+
 - name: copy logstash confg
   ansible.builtin.template:
     src: logstash.conf
