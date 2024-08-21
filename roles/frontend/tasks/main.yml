@@ -9,6 +9,12 @@
     dest: /etc/nginx/default.d/roboshop.conf
   # if only web-server checking then keep all application to localhost.
 
+# in elk this step in log msg to get required format
+- name: copy nginx confg
+  ansible.builtin.template:
+    src: nginx.conf # no need to keep total path as like shell
+    dest: /etc/nginx/nginx.conf
+
  # in shell we are removing only data &  download & un-zip content
  # but here we are deleting folder & creating
 - name: remove default data
