@@ -1,3 +1,6 @@
+- name: install prometheus
+  ansible.builtin.shell : labauto prometheus-server
+
 - name: copy logstash confg
   ansible.builtin.template:
     src: prometheus.yml
@@ -6,5 +9,5 @@
 - name: install systemd
   ansible.builtin.systemd:
     name: prometheus
-    state: restarted
+    state: started
     enabled: true   # to main uniform true is keeping all
