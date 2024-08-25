@@ -1,2 +1,8 @@
 - name: install prometheus
   ansible.builtin.shell : labauto prometheus-node-exporter
+
+- name: install systemd
+  ansible.builtin.systemd:
+    name: node_exporter
+    state: restarted
+#    enabled: true   # to main uniform true is keeping all
