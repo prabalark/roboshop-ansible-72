@@ -33,3 +33,8 @@
     file: systemd.yml
 
 # tail -f /var/log/messages
+
+- name: import promtheus
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node_expo
