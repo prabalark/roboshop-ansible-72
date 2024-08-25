@@ -18,6 +18,8 @@ scrape_configs:
   - job_name: "prometheus"
     static_configs:
       - targets: ["localhost:9090"]
+
+  #this is link btw prometheus & nodeexpo
   - job_name: "ec2-nodes"
     static_configs:
-      - targets: ["172.31.40.130:9100"] #this is link btw prometheus & nodeexpo
+      - targets: ["172.31.40.130:9100"]
