@@ -1,3 +1,4 @@
+# labauto prometheus-server this is not compulsory step
 - name: install prometheus
   ansible.builtin.shell : labauto prometheus-server
 
