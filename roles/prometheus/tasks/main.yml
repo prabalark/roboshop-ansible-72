@@ -11,3 +11,5 @@
     name: prometheus
     state: restarted
 #    enabled: true   # to main uniform true is keeping all
+
+  #check the port 9090 is coming (or) not
