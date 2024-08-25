@@ -1,5 +1,5 @@
-#- name: install prometheus
-#  ansible.builtin.shell : labauto prometheus-server
+- name: install prometheus
+  ansible.builtin.shell : labauto prometheus-server
 
 - name: copy logstash confg
   ansible.builtin.template:
