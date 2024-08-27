@@ -19,6 +19,12 @@ scrape_configs:
     static_configs:
       - targets: ["localhost:9090"]
 
+  #this is link btw prometheus & nodeexpo
+  # static_configs
+  #- job_name: "ec2-nodes"
+  #  static_configs:
+  #    - targets: ["172.31.40.130:9100"]
+
   # dynamic_configs
   - job_name: "ec2-nodes"
     ec2_sd_configs:
@@ -27,9 +33,7 @@ scrape_configs:
         filters:  # link for tags in local.tf
           - name: tag:monitor
             values: [ "true" ]
+    relabel_configs:
+      - source_labels: [_meta_ec2_tag_Name]
+        target_label: name
 
-  #this is link btw prometheus & nodeexpo
-  # static_configs
-  #- job_name: "ec2-nodes"
-  #  static_configs:
-  #    - targets: ["172.31.40.130:9100"]
