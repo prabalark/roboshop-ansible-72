@@ -25,7 +25,7 @@ scrape_configs:
       - region: us-east-1
         port: 9100
         filters:  # link for tags in local.tf
-          - name: tag:Monitor
+          - name: tag:monitor
             values: [ "true" ]
 
   #this is link btw prometheus & nodeexpo
