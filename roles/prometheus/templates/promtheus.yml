@@ -41,9 +41,9 @@ scrape_configs:
 #      - source_labels: [ __meta_ec2_tag_env ]       # env = var.env in rootmodule.tf
 #        target_label: env
 
-     relabel_configs:
-       {% for label in labels %}
+    relabel_configs:
+      {% for label in labels %}
 
-       - source_labels: [ __meta_ec2_tag_{{label}} ] #var as per anssible
-         target_label: {{label}}
-         {% end for %}
+      - source_labels: [ __meta_ec2_tag_{{label}} ] #var as per anssible
+        target_label: {{label}}
+      {% end for %}
