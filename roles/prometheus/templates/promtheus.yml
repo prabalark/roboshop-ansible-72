@@ -36,6 +36,7 @@ scrape_configs:
     relabel_configs:
       - source_labels: [ __meta_ec2_tag_Name]
         target_label: name
-      - source_labels: [ __meta_ec2_tag_component ]
+      - source_labels: [ __meta_ec2_tag_component ] # compenent_name=each.value["Name"] in rootmodule.tf
         target_label: component
-
+      - source_labels: [ __meta_ec2_tag_env ]       # env = var.env in rootmodule.tf
+        target_label: env
