@@ -33,10 +33,17 @@ scrape_configs:
         filters:  # link for tags in local.tf
           - name: tag:monitor
             values: [ "true" ]
-    relabel_configs:
-      - source_labels: [ __meta_ec2_tag_Name]
-        target_label: name
-      - source_labels: [ __meta_ec2_tag_component ] # compenent_name=each.value["Name"] in rootmodule.tf
-        target_label: component
-      - source_labels: [ __meta_ec2_tag_env ]       # env = var.env in rootmodule.tf
-        target_label: env
+#    relabel_configs:
+#      - source_labels: [ __meta_ec2_tag_Name]
+#        target_label: name
+#      - source_labels: [ __meta_ec2_tag_component ] # compenent_name=each.value["Name"] in rootmodule.tf
+#        target_label: component
+#      - source_labels: [ __meta_ec2_tag_env ]       # env = var.env in rootmodule.tf
+#        target_label: env
+
+     relabel_configs:
+        {% for label in labels %}
+
+       - source_labels: [ __meta_ec2_tag_{{label}} ] #var as per anssible
+         target_label: {{label}}
+         {%- end for %}
