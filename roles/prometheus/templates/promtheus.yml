@@ -41,6 +41,7 @@ scrape_configs:
 #      - source_labels: [ __meta_ec2_tag_env ]       # env = var.env in rootmodule.tf
 #        target_label: env
 
+#instead of adding one-by-one we can keep in loop
     relabel_configs:
       {% for label in labels %}
 
