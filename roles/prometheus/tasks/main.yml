@@ -4,8 +4,11 @@
 
 - name: copy logstash confg
   ansible.builtin.template:
-    src: promtheus.yml
-    dest: /opt/prometheus/prometheus.yml
+    src: "{{item}}.yml"
+    dest: /opt/prometheus/{{item}}.yml
+  loop:
+    - prometheus
+    - alerts
 
 - name: install systemd
   ansible.builtin.systemd:
