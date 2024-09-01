@@ -1,4 +1,11 @@
+  # single
+#labels:
+#  - Name
+#  - component
+#  - env
+
+ # source & target different
 labels:
-  - Name
-  - component
-  - env
+  - { tag:Name ,label:name }
+  - { tag:env ,label:env }
+  - { tag:component ,label:component }
