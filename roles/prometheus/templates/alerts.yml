@@ -27,11 +27,11 @@ groups:
 
   {% for component in components %}
    # space compuslaory
-  - alert: systemd-{{ component }}
+  - alert: systemd-{{ component.name }}
     expr: node_systemd_unit_state{component="{{component.name}}",exported_name="{{component.service_name}}.service", state="active"} <1
     for: 1m
     labels:
       severity: page
     annotations:
-      summary: systemd-check
+      summary: {{ component.name }} systemd-check
   {%- endfor %}
