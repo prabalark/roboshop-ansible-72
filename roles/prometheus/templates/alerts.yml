@@ -16,3 +16,11 @@ groups:
       severity: page
     annotations:
       summary: High memory usage
+
+  - alert: serverdown
+    expr: up < 1
+    for: 1m
+    labels:
+      severity: page
+    annotations:
+      summary: server-down
