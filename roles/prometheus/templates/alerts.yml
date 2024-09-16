@@ -9,13 +9,10 @@ groups:
     annotations:
       summary: High Cpu usage
 
-groups:
-  - name: High-memory-Utlization-ec2-nodes
-    rules:
-      - alert: High-memory-Utlization
-        expr: 100 - ( 100 * ( (node_memory_MemFree_bytes + node_memory_Cached_bytes + node_memory_Buffers_bytes) /node_memory_MemTotal_bytes )) > 50
-        for: 1m
-        labels:
-          severity: page
-        annotations:
-          summary: High memory usage
+  - alert: High-memory-Utlization
+    expr: 100 - ( 100 * ( (node_memory_MemFree_bytes + node_memory_Cached_bytes + node_memory_Buffers_bytes) /node_memory_MemTotal_bytes )) > 50
+    for: 1m
+    labels:
+      severity: page
+    annotations:
+      summary: High memory usage
