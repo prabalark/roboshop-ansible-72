@@ -26,6 +26,7 @@ groups:
       summary: server-down
 
   {% for component in components %}
+   # space compuslaory
   - alert: systemd-{{ component }}
     expr: node_systemd_unit_state{component="{{component.name}}",exported_name="{{component.service_name}}.service", state="active"} <1
     for: 1m
