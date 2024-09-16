@@ -17,7 +17,7 @@ groups:
     annotations:
       summary: High memory usage
 
-  - alert: server  down
+  - alert: serverdown
     expr: up < 1
     for: 1m
     labels:
