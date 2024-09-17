@@ -1,5 +1,5 @@
 groups:
-- name: High-Cpu-Utlization-ec2-nodes
+- name: HighCpuUtlization-ec2-nodes
   rules:
   - alert: HighCpuUtlization
     expr: 100 - ( avg by (component ,env ,instance ,job ,name) (rate(node_cpu_seconds_total{mode="idle"}[1m]) *100)) > 50
@@ -9,7 +9,7 @@ groups:
     annotations:
       summary: High Cpu usage
 
-  - alert: High-memory-Utlization
+  - alert: HighmemoryUtlization
     expr: 100 - ( 100 * ( (node_memory_MemFree_bytes + node_memory_Cached_bytes + node_memory_Buffers_bytes) /node_memory_MemTotal_bytes )) > 50
     for: 1m
     labels:
