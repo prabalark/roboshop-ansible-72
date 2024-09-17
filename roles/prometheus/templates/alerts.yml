@@ -1,7 +1,7 @@
 groups:
 - name: High-Cpu-Utlization-ec2-nodes
   rules:
-  - alert: High-Cpu-Utlization
+  - alert: HighCpuUtlization
     expr: 100 - ( avg by (component ,env ,instance ,job ,name) (rate(node_cpu_seconds_total{mode="idle"}[1m]) *100)) > 50
     for: 1m
     labels:
@@ -27,7 +27,7 @@ groups:
 
   {% for component in components %}
    # space compuslaory
-  - alert: systemd-{{ component.name }}
+  - alert: systemd {{ component.name }}
     expr: node_systemd_unit_state{name="{{component.name}}",exported_name="{{component.service_name}}.service", state="active"} <1
     for: 1m
     labels:
