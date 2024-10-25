@@ -27,7 +27,7 @@
         name: mongodb-org-shell # in yum no need -y
         state: installed
 
-    - name : Download DOCPEM file
+    - name : Download DOCPEM file  # this is for seure connection btw catalogue & DOCDB
       ansible.builtin.get_url:  # to get the file from files use copy
         url: https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
         dest: /app/rds-combined-ca-bundle.pem
