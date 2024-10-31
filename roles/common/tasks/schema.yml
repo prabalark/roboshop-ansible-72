@@ -33,9 +33,8 @@
         dest: /app/rds-combined-ca-bundle.pem
 
     - name: load schema
-      ansible.builtin.shell: mongo --ssl --host {{ lookup('aws_ssm','{{env}}.docdb.db_endpoint',region='us-east-1') }}:27017 --sslCAFile global-bundle.pem --username {{ lookup('aws_ssm','{{env}}.docdb.db_user',region='us-east-1') }} --password {{ lookup('aws_ssm','{{env}}.docdb.db_pass',region='us-east-1') }}</app/schema/{{component}}.js
+      ansible.builtin.shell: mongo --ssl --host {{ lookup('aws_ssm','{{env}}.docdb.db_endpoint',region='us-east-1') }}:27017 --sslCAFile /app/rds-combined-ca-bundle.pem --username {{ lookup('aws_ssm','{{env}}.docdb.db_user',region='us-east-1') }} --password {{ lookup('aws_ssm','{{env}}.docdb.db_pass',region='us-east-1') }}</app/schema/{{component}}.js
 
-  mongo --ssl --host docdb-dev.cb0y4iwi2yc4.us-east-1.docdb.amazonaws.com:27017 --sslCAFile /app/rds-combined-ca-bundle.pem --username roboshop --password
 
 #------------#shipping-mysql------------------#
 # - my sql repo was not kept  bcz in shipping.sh it is thy in document
