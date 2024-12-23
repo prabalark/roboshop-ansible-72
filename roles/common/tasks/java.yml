@@ -1,19 +1,24 @@
-- name: install maven
-  ansible.builtin.yum:
-    name: maven
-    state: installed  #-y not required in ansible
+#- name: install maven
+#  ansible.builtin.yum:
+#    name: maven
+#    state: installed  #-y not required in ansible
 # (or)
 #- name: install maven
 #  ansible.builtin.shell: dnf install maven -y
 
+
+- name: install java
+  ansible.builtin.yum:
+    name: java-17-openjdk
+-
 - name: import app_pre
   ansible.builtin.import_tasks:
     file: app_prereq.yml
 
-- name: install npm
-  ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
-  args:
-    chdir: /app
+#- name: install npm
+#  ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
+#  args:
+#    chdir: /app
 # check upto npm in linux by  cd /app  ls-l   cat package.json [ no error has to get ]
 
 #step-2
