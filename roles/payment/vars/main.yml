@@ -1,3 +1,4 @@
 component: payment
 schema: none
+app_version: 1.0.0
 # no variable in schema.yml to aviod error we have to keep
