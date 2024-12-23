@@ -16,10 +16,11 @@
   ansible.builtin.import_tasks:
     file: app_prereq.yml
 
-- name: install npm
-  ansible.builtin.shell: npm install
-  args:
-    chdir: /app
+# this we kept in ci ppl
+#- name: install npm
+#  ansible.builtin.shell: npm install
+#  args:
+#    chdir: /app
  # check upto npm in linux by  cd /app  ls-l   cat package.json [ no error has to get ]
 
 #step-2
