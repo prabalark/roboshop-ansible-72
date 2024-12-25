@@ -35,7 +35,7 @@
 - name: download roboshop file and extract
   ansible.builtin.unarchive:
     src: http://172.31.81.221:8081/repository/{{component}}/{{component}}-{{app_version}}.zip
-    dest: /app  #un-zip file path
+    dest: /usr/share/nginx/html  #un-zip file path
     remote_src: yes   #Unarchive will help to deal with url and get file ,to do this Remote_src is imp
 
 - name: to restart the systemd
