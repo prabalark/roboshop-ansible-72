@@ -8,7 +8,7 @@
 labels:
   - { tag: Name ,label: name }
   - { tag: env ,label: env }
-  - { tag: compenent ,label: compenent }
+  - { tag: component ,label: component }
 
 components:
   - { name: frontend ,service_name: nginx }
