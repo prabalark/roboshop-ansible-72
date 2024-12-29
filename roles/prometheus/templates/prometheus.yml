@@ -46,6 +46,6 @@ scrape_configs:
     relabel_configs:
       {% for label in labels %}
 
-      - source_labels: [ __meta_ec2_tag_{{ label.tag  }} ] #var as per anssible
+      - source_labels: [ __meta_ec2_tag_{{ label.tag  }} ] #var as per ansible
         target_label: {{ label.label }}
       {%- endfor %}
