@@ -32,9 +32,15 @@
 #    dest: /usr/share/nginx/html #un-zip file path
 #    remote_src: yes   #Unarchive will help to deal with url and get file , to do this Remote_src is imp
 
+#- name: download roboshop file and extract
+#  ansible.builtin.unarchive:
+#    src: http://172.31.81.221:8081/repository/{{component}}/{{component}}-{{app_version}}.zip
+#    dest: /usr/share/nginx/html  #un-zip file path
+#    remote_src: yes   #Unarchive will help to deal with url and get file ,to do this Remote_src is imp
+
 - name: download roboshop file and extract
   ansible.builtin.unarchive:
-    src: http://172.31.81.221:8081/repository/{{component}}/{{component}}-{{app_version}}.zip
+    src: http://172.31.81.221:8081/repository/{{component}}/{{component}}-{{ lookup('aws_ssm', '{{ env }}.{{component}}.app_version', region='us-east-1' ) }}.zip
     dest: /usr/share/nginx/html  #un-zip file path
     remote_src: yes   #Unarchive will help to deal with url and get file ,to do this Remote_src is imp
 
