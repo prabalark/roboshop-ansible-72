@@ -1,6 +1,7 @@
 - name: Demo
   hosts: all
   become: true # to overcome "This command has to be run under the root user.",
+  serial: 1
   roles:
     - "{{ role_name }}"
   # giving folder-name as variable bcz many components
