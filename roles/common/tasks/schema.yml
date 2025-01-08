@@ -52,10 +52,13 @@
 
     - name: check schema # checking schema exit (or) not
       ansible.builtin.shell: echo 'show databases' mysql -h {{ lookup('aws_ssm','{{env}}.{{component}}.rds_db_host',region='us-east-1') }} -u{{ lookup('aws_ssm','{{env}}.rds.db_user',region='us-east-1') }} -p{{ lookup('aws_ssm','{{env}}.rds.db_pass',region='us-east-1') }} | grep cities
+        ignore_errors: yes
+        register: out
+
 
     - name: load schema
       ansible.builtin.shell: mysql -h {{ lookup('aws_ssm','{{env}}.{{component}}.rds_db_host',region='us-east-1') }} -u{{ lookup('aws_ssm','{{env}}.rds.db_user',region='us-east-1') }} -p{{ lookup('aws_ssm','{{env}}.rds.db_pass',region='us-east-1') }} < /app/schema/{{component}}.sql
-
+      when: out.rc !=0 or force_schema_reload
 
 #------------#payment-rabbitmq------------------#
  #  rabbit mq file was not kept in schema
